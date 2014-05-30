@@ -70,7 +70,7 @@ mongoose.connection.on('error', function(err){
 // connection successful event handler:
 // check if the Db already contains a greeting. if not, create one and save it to the Db
 mongoose.connection.once('open', function() {
-  var greeting;
+  var greetings;
   
   console.log('database '+config.DATABASE+' is now open on '+config.HOST );
   
