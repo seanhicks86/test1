@@ -70,13 +70,13 @@ mongoose.connection.on('error', function(err){
 // connection successful event handler:
 // check if the Db already contains a greeting. if not, create one and save it to the Db
 mongoose.connection.once('open', function() {
-  var greetings;
+  var greeting;
   
   console.log('database '+config.DATABASE+' is now open on '+config.HOST );
   
   // search if a greeting has already been saved in our db
   Greeting.find( function(err, greetings){
-    if( !err && greetings ){ // at least one greeting record already exists in our db. we can use that
+    if( !err && greetings.length != 0 ){ // at least one greeting record already exists in our db. we can use that
       console.log(greetings.length+' greetings already exist in DB' );
     }
     else { // no records found
